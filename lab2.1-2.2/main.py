@@ -1,6 +1,7 @@
 import math
 from matplotlib import pyplot as plt
 from lab1_signal import generate_signal, N, n, OMEGA_MAX
+from time import perf_counter
 
 def iexp(n):
     return complex(math.cos(n), math.sin(n))
@@ -28,7 +29,9 @@ if __name__ == "__main__":
     t = list(range(N))
     x = generate_signal(t)
     dfreq = dft(x)
+    t = perf_counter()
     ffreq = fft(x)
+    print("fft time: " + str(perf_counter() - t))
     fig = plt.figure(figsize=[12, 6])
     plots = fig.subplots(3,1, sharex=True)
     plots[0].plot(t, x)
