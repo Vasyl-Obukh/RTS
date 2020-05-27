@@ -4,7 +4,8 @@ from time import perf_counter
 
 
 class Main:
-    points = RandomSignal(8, 1200).generate_signal()
+    w = int(input("Enter w: "))
+    points = RandomSignal(8, w).generate_signal()
     graf = Grapfic()
     graf.visual(points, 'random signal', 't', 'X(t)')
 
